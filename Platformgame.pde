@@ -87,13 +87,14 @@ void createPlatforms(String filename) {
         enemy = new Enemy(spider, 50/72.0, bLeft, bRight);
         enemy.center_x = SPRITE_SIZE/2 + col*SPRITE_SIZE;
         enemy.center_y = SPRITE_SIZE/2 + row*SPRITE_SIZE;
+        
       }
     }
   }
 }
 void draw() {
   background(255);
-  //scroll();
+  scroll();
   displayAll();
   if(!isGameOver){
     updateAll();
@@ -112,7 +113,25 @@ void updateAll(){
   collectCoins();
   checkDeath();
 }
-
+void scroll() {
+  float right_boundary = view_x + width - RIGHT_MARGIN;
+  if(player.getRight() > right_boundary) {
+    view_x += player.getRight() - right_boundary;
+  }
+  float left_boundary = view_x + LEFT_MARGIN;
+  if(player.getLeft() < left_boundary) {
+    view_x -= left_boundary - player.getLeft();
+  }
+  float bottom_boundary = view_y + height - VERTICAL_MARGIN;
+  if(player.getBottom() > bottom_boundary) {
+    view_y += player.getBottom() - bottom_boundary;
+  }
+  float top_boundary = view_y + VERTICAL_MARGIN;
+  if(player.getTop() < top_boundary) {
+    view_y -= top_boundary -player.getTop();
+  }
+  translate(-view_x, -view_y);
+}
 void displayAll(){
   player.display();
   
