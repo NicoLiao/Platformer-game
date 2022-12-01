@@ -1,5 +1,6 @@
 public class Coin extends AnimatedSprite {
   public Coin(PImage img, float scale) {
+    //Setting images into array
     super(img, scale);
     standNeutral = new PImage[4];
     standNeutral[0] = loadImage("gold1.png");

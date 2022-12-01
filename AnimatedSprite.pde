@@ -1,4 +1,6 @@
 public class AnimatedSprite extends Sprite {
+  
+  //Images in arrays
   PImage[] currentImages;
   PImage[] standNeutral;
   PImage[] moveLeft;
@@ -12,6 +14,8 @@ public class AnimatedSprite extends Sprite {
     index = 0;
     frame = 0;
   }
+  
+  //Update animation
   public void updateAnimation() {
     frame++;
     if (frame % 5 == 0) {
@@ -20,6 +24,8 @@ public class AnimatedSprite extends Sprite {
       advanceToNextImage();
     }
   }
+  
+  //Direction
   public void selectDirection() {
     if (change_x > 0) {
       direction = RIGHT_FACING;
@@ -29,6 +35,8 @@ public class AnimatedSprite extends Sprite {
       direction = NEUTRAL_FACING;
     }
   }
+  
+  //Selection image
   public void selectCurrentImages() {
     if (direction == RIGHT_FACING) {
       currentImages = moveRight;

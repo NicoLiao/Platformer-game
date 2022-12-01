@@ -11,18 +11,12 @@ public class Player extends AnimatedSprite {
     direction = RIGHT_FACING;
     onPlatform = false;
     inPlace = true;
+    
+    //Setting images in array for different movements
     standLeft = new PImage[1];
     standLeft[0] = loadImage("player_stand_left.png");
     standRight = new PImage[1];
     standRight[0] = loadImage("player_stand_right.png");
-    //jumpLeft = new PImage[1];
-    //jumpLeft[0] = loadImage("player_jump_left.png");
-    //jumpRight = new PImage[1];
-    //jumpRight[0] = loadImage("player_jump_right.png");
-    //jumpLeft = new PImage[1];
-    //jumpLeft[0] = loadImage("player_walk_left1.png");
-    //jumpRight = new PImage[1];
-    //jumpRight[0] = loadImage("player_walk_right1.png");
     moveLeft = new PImage[2];
     moveLeft[0] = loadImage("player_walk_left1.png");
     moveLeft[1] = loadImage("player_walk_left2.png");
@@ -38,6 +32,8 @@ public class Player extends AnimatedSprite {
     inPlace = change_x == 0 && change_y == 0;
     super.updateAnimation();
   }
+  
+  //Overriding the original code from AnimatedSprite
   @Override
     public void selectDirection() {
     if (change_x > 0)
@@ -45,6 +41,8 @@ public class Player extends AnimatedSprite {
     else if (change_x < 0)
       direction = LEFT_FACING;
   }
+  
+  //Movement select images
   @Override
     public void selectCurrentImages() {
     if (direction == RIGHT_FACING) {

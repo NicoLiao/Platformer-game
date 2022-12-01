@@ -4,6 +4,7 @@ public class Sprite {
   float change_x, change_y;
   float w, h;
 
+  //Setting each block size
   public Sprite(String filename, float scale, float x, float y) {
     image = loadImage(filename);
     w = image.width * scale;
@@ -47,6 +48,8 @@ public class Sprite {
   float getBottom() {
     return center_y + h/2;
   }
+  
+  //Setting sprite size
   public Sprite(PImage img, float scale) {
     image = img;
     w = image.width * scale;
